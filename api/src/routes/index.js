@@ -16,7 +16,6 @@ const router = Router();
 
 router.get("/countries", async (req, res) => {
   const { name } = req.query;
-  await getActivities();
   try {
     if (name) {
       const countryByName = await getByName(name);
