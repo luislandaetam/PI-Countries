@@ -16,6 +16,7 @@ const router = Router();
 
 router.get("/countries", async (req, res) => {
   const { name } = req.query;
+  await getActivities();
   try {
     if (name) {
       const countryByName = await getByName(name);
@@ -40,7 +41,7 @@ router.get("/countries/:id", async (req, res) => {
   }
 });
 
-router.post("/activities/create", async (req, res) => {
+router.post("/activities", async (req, res) => {
   const { name, difficulty, duration, season, countries } = req.body;
   const createdActivity = await createActivity(
     name,
