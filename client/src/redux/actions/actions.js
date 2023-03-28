@@ -66,7 +66,8 @@ export const createActivity = (activityDetails) => {
   return async function (dispatch) {
     console.log(activityDetails);
     await axios.post("/activities", activityDetails);
-    return dispatch({ type: CREATE_ACTIVITY });
+    dispatch({ type: CREATE_ACTIVITY });
+    return (window.location.pathname = "/countries");
   };
 };
 

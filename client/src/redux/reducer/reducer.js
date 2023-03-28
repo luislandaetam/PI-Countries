@@ -131,7 +131,7 @@ const reducer = (state = initialState, action) => {
       };
     case FILTER_BY_ACTIVITY:
       const filteredActivity = [...state.countries].filter((country) => {
-        return country.activities === action.payload;
+        return country.activity.includes(action.payload);
       });
       return {
         ...state,
