@@ -1,0 +1,121 @@
+.name {
+  position: absolute;
+  background-color: white;
+  width: fit-content;
+  opacity: 0;
+  border-radius: 5px;
+  border: 3px solid #2c74b3;
+  padding: 5px;
+  font-size: 1.5rem;
+}
+
+/* ///////////////////////// WORLD MAP //////////////////////////// */
+
+.worldMap path {
+  cursor: pointer;
+  fill: #ccd3e1;
+  transition: 0.2s ease-in-out;
+}
+
+.worldMap path:hover {
+  fill: #2c74b3;
+}
+
+/* ///////////////////////// REDIRECTION //////////////////////////// */
+
+.redirection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ///////////////////////// ICON //////////////////////////// */
+
+.icon {
+  width: 48px;
+  transform: rotate(23.5deg);
+  transition: 0.2s linear;
+  margin-right: 10px;
+}
+
+.icon:hover {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+  filter: invert(36%) sepia(93%) saturate(623%) hue-rotate(172deg)
+    brightness(88%) contrast(82%);
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(383.5deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(383.5deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(383.5deg);
+    transform: rotate(383.5deg);
+  }
+}
+
+/* ///////////////////// HOME BUTTON /////////////////////////////////// */
+
+.button {
+  font-family: inherit;
+  font-size: 16px;
+  background: #2c74b3;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.button img {
+  display: block;
+  width: 24px;
+  filter: invert(1);
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.button:hover .imgWrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.button:hover img {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+.button:hover span {
+  transform: translateX(5em);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}

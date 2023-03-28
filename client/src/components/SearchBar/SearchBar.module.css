@@ -1,0 +1,172 @@
+/* //////////////////////////// FORM /////////////////////////////// */
+
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 16px;
+}
+
+/* ///////////////////////// LOGO //////////////////////////// */
+
+.logo h1 {
+  position: absolute;
+  top: 0;
+  left: 72px;
+  color: #171a2b;
+  transition: 0.2s linear;
+}
+
+.icon {
+  width: 56px;
+  transform: rotate(23.5deg);
+  transition: 0.2s linear;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.logo:hover h1 {
+  filter: invert(36%) sepia(93%) saturate(623%) hue-rotate(172deg)
+    brightness(88%) contrast(82%);
+}
+
+.logo:hover .icon {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+  filter: invert(36%) sepia(93%) saturate(623%) hue-rotate(172deg)
+    brightness(88%) contrast(82%);
+}
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(383.5deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(383.5deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(383.5deg);
+    transform: rotate(383.5deg);
+  }
+}
+
+/* ///////////////////////// SEARCH BAR //////////////////////////// */
+
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin: 10px;
+}
+
+.containerInput {
+  position: relative;
+  margin: 10px;
+}
+
+.input {
+  width: 150px;
+  padding: 10px 0px 10px 40px;
+  border-radius: 9999px;
+  border: solid 1px #2c74b3;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  opacity: 0.8;
+}
+
+.containerInput svg {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(0, -50%);
+}
+
+.input:focus {
+  opacity: 1;
+  width: 250px;
+}
+/* ///////////////////// SEARCH BUTTON /////////////////////////////////// */
+
+.button {
+  font-family: inherit;
+  font-size: 20px;
+  height: 38px;
+  margin: 10px;
+  background: #2c74b3;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.button img {
+  display: block;
+  width: 24px;
+  filter: invert(1);
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.button:hover .imgWrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.button:hover img {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+.button:hover span {
+  transform: translateX(5em);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
+/* ///////////////////// ACTIVITY'S BUTTONS /////////////////////////////////// */
+
+.activities,
+.createActivity {
+  height: 38px;
+  line-height: 38px;
+  width: fit-content;
+  padding: 0 5px;
+  border-radius: 19px;
+  font-family: "Montserrat", sans-serif;
+  background: #2c74b3;
+  border: 1px solid transparent;
+  color: #fff;
+  transition: 0.2s all ease-in-out;
+}
+
+.activities:hover,
+.createActivity:hover {
+  background: #171a2b;
+}

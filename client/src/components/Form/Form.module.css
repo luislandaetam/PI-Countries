@@ -1,0 +1,285 @@
+.addActivityContainer {
+  display: grid;
+  justify-content: center;
+  grid-template-areas: "left right";
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ///////////////////////////////// ROTATING WORLD //////////////////////////// */
+
+.addActivityContainer .worldIcon {
+  border-radius: 50%;
+  width: 512px;
+  margin-right: 5px;
+  padding: 10px;
+  position: absolute;
+  top: 10%;
+  left: -224px;
+  -webkit-animation: spin 24s linear infinite;
+  -moz-animation: spin 24s linear infinite;
+  animation: spin 24s linear infinite;
+  filter: invert(36%) sepia(93%) saturate(623%) hue-rotate(172deg)
+    brightness(88%) contrast(82%);
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* /////////////////////////////// LEFT CONTAINER /////////////////////////// */
+
+.leftContainer {
+  overflow: hidden;
+  padding: 40px 0 0 0;
+  position: relative;
+  text-align: center;
+  width: 300px;
+}
+
+/* PANGEA TITLE */
+
+.leftContainer h2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* MOON ICON */
+
+.leftContainer h2 .moonIcon {
+  width: 32px;
+  padding: 10px;
+  -webkit-animation: spin 48s linear infinite;
+  -moz-animation: spin 48s linear infinite;
+  animation: spin 48s linear infinite;
+}
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* /////////////////////////////// RIGHT CONTAINER /////////////////////////// */
+
+.rightContainer {
+  display: grid;
+  grid-template-areas: "." ".";
+  width: 500px;
+}
+
+.rightContainer header {
+  padding: 40px;
+}
+
+/* lABELS */
+
+.activitysName label,
+.activitysDuration label,
+.activitysDifficulty label,
+.activitysCountry label,
+.activitysSeason label {
+  display: block;
+  margin-bottom: 5px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* MESSAGE */
+
+.rightContainer h1:nth-of-type(1) {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* INPUTS AND SELECT */
+
+.rightContainer .set {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.rightContainer input,
+.rightContainer select {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  height: 38px;
+  line-height: 38px;
+  padding-left: 5px;
+}
+
+/* UPLOAD PICTURE */
+
+.uploadPicture {
+  visibility: hidden;
+}
+
+.rightContainer .activitysPhoto {
+  align-items: center;
+  display: grid;
+  grid-template-areas: ". .";
+}
+.rightContainer .activitysPhoto button {
+  border: none;
+  border-radius: 50%;
+  height: 38px;
+  margin-right: 10px;
+  outline: none;
+  width: 38px;
+  background-color: #ccd3e1;
+  transition: all 0.2s ease-in-out;
+}
+
+.rightContainer .activitysPhoto button:hover {
+  background-color: #171a2b;
+}
+
+.rightContainer .activitysPhoto button img {
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 5px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.rightContainer .activitysPhoto button img:hover {
+  filter: invert(1);
+}
+
+/* SELECTED COUNTRIES */
+
+.rightContainer .selectedCountries {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 500px;
+  background: transparent;
+}
+
+/* CARDS */
+
+.rightContainer .selectedCountries .countryCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: fit-content;
+  height: 20px;
+  padding: 0 5px;
+  margin: 0 10px 10px 10px;
+  border: 1px solid #ccd3e1;
+  border-radius: 20px;
+  color: #171a2b;
+}
+
+/*  */
+
+.rightContainer label,
+.rightContainer input,
+.rightContainer .activitysPhoto {
+  width: 176px;
+}
+
+/* SEASON OPTIONS */
+
+.rightContainer .activitysSeason .radioContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.radioContainer {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.radioContainer label {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: 0.2s all ease-in-out;
+  width: 80px;
+}
+
+.radioContainer input[type="radio"] {
+  display: none;
+}
+
+.radioContainer input[type="radio"]:checked + label {
+  background: #2c74b3;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* /////////////////////////////////// FOOTER //////////////////////////////////////////////// */
+
+.rightContainer footer {
+  align-items: center;
+  display: grid;
+  padding: 5px 40px;
+}
+.rightContainer footer button,
+.rightContainer footer .back {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #171a2b;
+  height: 38px;
+  line-height: 38px;
+  width: 100px;
+  border-radius: 19px;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+}
+.rightContainer footer .back {
+  text-align: center;
+  background: #fff;
+  transition: 0.2s all ease-in-out;
+}
+.rightContainer footer .back:hover {
+  background: #171a2b;
+  color: white;
+}
+.rightContainer footer .next {
+  background: #2c74b3;
+  border: 1px solid transparent;
+  color: #fff;
+  transition: 0.2s all ease-in-out;
+}
+.rightContainer footer .next:hover {
+  background: #171a2b;
+}

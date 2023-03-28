@@ -1,0 +1,16 @@
+.error {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.error img {
+  width: 250px;
+  margin: 56px;
+}
+
+.error h2 {
+  font-size: 32px;
+  width: 500px;
+}
