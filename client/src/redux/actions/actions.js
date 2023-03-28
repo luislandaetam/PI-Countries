@@ -20,7 +20,7 @@ import axios from "axios";
 export const getAllCountries = () => {
   return async function (dispatch) {
     dispatch({ type: IS_LOADING });
-    await axios.get("http://localhost:3001/countries").then((res) => {
+    await axios.get("/countries").then((res) => {
       return dispatch({ type: GET_ALL_COUNTRIES, payload: res.data });
     });
   };
@@ -29,7 +29,7 @@ export const getAllCountries = () => {
 export const getById = (id) => {
   return async function (dispatch) {
     dispatch({ type: IS_LOADING });
-    await axios.get(`http://localhost:3001/countries/${id}`).then((res) => {
+    await axios.get(`/countries/${id}`).then((res) => {
       if (!res.data) {
         return dispatch({ type: DOESNT_EXIST, payload: { name: -1 } });
       }
@@ -41,21 +41,19 @@ export const getById = (id) => {
 export const getByName = (name) => {
   return async function (dispatch) {
     dispatch({ type: IS_LOADING });
-    await axios
-      .get(`http://localhost:3001/countries?name=${name}`)
-      .then((res) => {
-        if (res.data.length === 0) {
-          return dispatch({ type: DOESNT_EXIST, payload: ["-1"] });
-        }
-        return dispatch({ type: GET_BY_NAME, payload: res.data });
-      });
+    await axios.get(`/countries?name=${name}`).then((res) => {
+      if (res.data.length === 0) {
+        return dispatch({ type: DOESNT_EXIST, payload: ["-1"] });
+      }
+      return dispatch({ type: GET_BY_NAME, payload: res.data });
+    });
   };
 };
 
 export const getActivities = () => {
   return async function (dispatch) {
     dispatch({ type: IS_LOADING });
-    await axios.get("http://localhost:3001/activities").then((res) => {
+    await axios.get("/activities").then((res) => {
       if (res.data.length === 0) {
         return dispatch({ type: DOESNT_EXIST, payload: ["-2"] });
       }
@@ -67,10 +65,7 @@ export const getActivities = () => {
 export const createActivity = (activityDetails) => {
   return async function (dispatch) {
     console.log(activityDetails);
-    await axios.post(
-      "http://localhost:3001/activities/create",
-      activityDetails
-    );
+    await axios.post("/activities", activityDetails);
     return dispatch({ type: CREATE_ACTIVITY });
   };
 };

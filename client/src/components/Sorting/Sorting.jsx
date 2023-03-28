@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   filterByActivity,
@@ -8,6 +8,7 @@ import {
   sortHighest,
   sortLowest,
   sortZA,
+  getActivities,
 } from "../../redux/actions/actions.js";
 import resetIcon from "../../assets/resetIcon.png";
 import styles from "./Sorting.module.css";
@@ -61,6 +62,10 @@ const Sorting = () => {
         return handleContinentFilter(continentFilter);
     }
   };
+
+  useEffect(() => {
+    dispatch(getActivities());
+  }, []);
 
   return (
     <form
