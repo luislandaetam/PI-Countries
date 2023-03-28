@@ -57,17 +57,7 @@ const SearchBar = () => {
           <span>Travel</span>
         </button>
       </div>
-      <Link
-        to={
-          window.location.pathname === "/countries"
-            ? "/activities"
-            : "/countries"
-        }
-        className={styles.activities}
-      >
-        {window.location.pathname === "/countries" ? "Activities" : "Countries"}
-      </Link>
-      <Link to="/activities/create" className={styles.createActivity}>
+      <Link to="/activities" className={styles.createActivity}>
         Create Activity
       </Link>
     </form>

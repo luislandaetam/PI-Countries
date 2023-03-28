@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  filterByActivity,
   filterByContinent,
   getAllCountries,
   sortAZ,
@@ -15,18 +16,33 @@ const Sorting = () => {
   const dispatch = useDispatch();
   const activities = useSelector((state) => state.activities);
 
-  let [currentFilter, setCurrentFilter] = useState("all");
+  let [continentFilter, setContinentFilter] = useState("all");
+  let [activityFilter, setActivityFilter] = useState("all");
 
-  const handleFilter = (event) => {
-    if (event !== currentFilter) {
-      setCurrentFilter(event.target.value);
+  const handleContinentFilter = (event) => {
+    if (event !== continentFilter) {
+      setContinentFilter(event.target.value);
       if (event.target.value !== "all") {
         return dispatch(filterByContinent(event.target.value));
       }
       return dispatch(getAllCountries());
     }
-    if (currentFilter !== "all") {
-      return dispatch(filterByContinent(currentFilter));
+    if (continentFilter !== "all") {
+      return dispatch(filterByContinent(continentFilter));
+    }
+    return dispatch(getAllCountries());
+  };
+
+  const handleActivityFilter = (event) => {
+    if (event !== activityFilter) {
+      setActivityFilter(event.target.value);
+      if (event.target.value !== "all") {
+        return dispatch(filterByActivity(event.target.value));
+      }
+      return dispatch(getAllCountries());
+    }
+    if (activityFilter !== "all") {
+      return dispatch(filterByActivity(activityFilter));
     }
     return dispatch(getAllCountries());
   };
@@ -42,7 +58,7 @@ const Sorting = () => {
       case "lowest":
         return dispatch(sortLowest());
       default:
-        return handleFilter(currentFilter);
+        return handleContinentFilter(continentFilter);
     }
   };
 
@@ -57,7 +73,7 @@ const Sorting = () => {
       <section>
         <label htmlFor="continent-filter">Filter:</label>
         <select
-          onChange={handleFilter}
+          onChange={handleContinentFilter}
           name="continent-filter"
           id="continent-filter"
           defaultValue="all"
@@ -104,7 +120,7 @@ const Sorting = () => {
       <section>
         <label htmlFor="activity-filter">Activity:</label>
         <select
-          onChange={handleFilter}
+          onChange={handleActivityFilter}
           name="activity-filter"
           id="activity-filter"
           defaultValue="all"

@@ -13,6 +13,7 @@ import {
   IS_LOADING,
   DOESNT_EXIST,
   CREATE_ACTIVITY,
+  FILTER_BY_ACTIVITY,
 } from "../actions/action-types.js";
 
 const initialState = {
@@ -48,7 +49,7 @@ const reducer = (state = initialState, action) => {
       };
     case DOESNT_EXIST:
       if (Array.isArray(action.payload)) {
-        if (action.payload === "-1") {
+        if (action.payload[0] === "-1") {
           return {
             ...state,
             filteredCountries: action.payload,
@@ -59,6 +60,7 @@ const reducer = (state = initialState, action) => {
         } else {
           return {
             ...state,
+            filteredCountries: action.payload,
             activities: action.payload,
             shownCards: action.payload.slice(0, 10),
             page: 1,
@@ -127,6 +129,17 @@ const reducer = (state = initialState, action) => {
         page: 1,
         isLoading: false,
       };
+    case FILTER_BY_ACTIVITY:
+      const filteredActivity = [...state.countries].filter((country) => {
+        return country.activities === action.payload;
+      });
+      return {
+        ...state,
+        filteredCountries: filteredActivity,
+        shownCards: filteredActivity.slice(0, 10),
+        page: 1,
+        isLoading: false,
+      };
     case NEXT_GROUP:
       const totalCards = state.filteredCountries.length;
       const firstCardIndex = action.payload * 10;
@@ -171,7 +184,13 @@ const reducer = (state = initialState, action) => {
     case GET_BY_ID:
       return { ...state, countryDetail: action.payload, isLoading: false };
     case GET_ACTIVITIES:
-      return { ...state, activities: action.payload, isLoading: false };
+      return {
+        ...state,
+        activities: action.payload,
+        shownCards: action.payload.slice(0, 10),
+        page: 1,
+        isLoading: false,
+      };
     case CREATE_ACTIVITY:
       return { ...state, createdActivity: true };
     case IS_LOADING:

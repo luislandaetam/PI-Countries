@@ -4,7 +4,6 @@ import Landing from "./components/Landing/Landing.jsx";
 import Home from "./components/Home/Home.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import Form from "./components/Form/Form.jsx";
-import Activities from "./components/Activities/Activities.jsx";
 
 function App() {
   return (
@@ -18,10 +17,7 @@ function App() {
       <Route path="/countries/:id">
         <Detail />
       </Route>
-      <Route exact path="/activities">
-        <Activities />
-      </Route>
-      <Route path="/activities/create">
+      <Route path="/activities">
         <Form />
       </Route>
     </div>

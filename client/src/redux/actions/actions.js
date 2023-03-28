@@ -13,6 +13,7 @@ import {
   IS_LOADING,
   DOESNT_EXIST,
   CREATE_ACTIVITY,
+  FILTER_BY_ACTIVITY,
 } from "./action-types.js";
 import axios from "axios";
 
@@ -65,6 +66,7 @@ export const getActivities = () => {
 
 export const createActivity = (activityDetails) => {
   return async function (dispatch) {
+    console.log(activityDetails);
     await axios.post(
       "http://localhost:3001/activities/create",
       activityDetails
@@ -105,6 +107,13 @@ export const filterByContinent = (continent) => {
   return function (dispatch) {
     dispatch({ type: IS_LOADING });
     return dispatch({ type: FILTER_BY_CONTINENT, payload: continent });
+  };
+};
+
+export const filterByActivity = (activity) => {
+  return function (dispatch) {
+    dispatch({ type: IS_LOADING });
+    return dispatch({ type: FILTER_BY_ACTIVITY, payload: activity });
   };
 };
 

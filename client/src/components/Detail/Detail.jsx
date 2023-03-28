@@ -53,10 +53,12 @@ const Detail = () => {
               )}
               {countryDetail.activities.length > 0 && (
                 <div>
-                  <h4>Activities</h4>
-                  {countryDetail.activities.map((activity, index) => {
-                    return <p key={index}>{activity}</p>;
-                  })}
+                  <h4>Activities:</h4>
+                  <ul>
+                    {countryDetail.activities.map((activity, index) => {
+                      return <li key={index}>{activity.name}</li>;
+                    })}
+                  </ul>
                 </div>
               )}
             </section>

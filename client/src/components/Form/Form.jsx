@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-// import Validation from "../Validation/Validation";
 import { createActivity } from "../../redux/actions/actions.js";
 import cameraIcon from "../../assets/cameraIcon.png";
 import worldIcon from "../../assets/worldIcon.png";
@@ -29,14 +28,10 @@ const Form = () => {
       return;
     }
     if (event.target.name === "country") {
-      let countryOnList = false;
       for (let i = 0; i < formState.countries.length; i++) {
         if (formState.countries[i] === event.target.value) {
-          countryOnList = true;
+          return;
         }
-      }
-      if (countryOnList) {
-        return;
       }
       setFormState({
         ...formState,
@@ -56,9 +51,26 @@ const Form = () => {
     });
   };
 
+  const validation = ({ name, duration, difficulty, season, countries }) => {
+    if (
+      !name ||
+      !duration ||
+      !difficulty ||
+      !season ||
+      countries.length === 0
+    ) {
+      return false;
+    }
+    return true;
+  };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    return dispatch(createActivity(formState));
+    let validated = validation(formState);
+    if (validated) {
+      return dispatch(createActivity(formState));
+    }
+    return;
   };
 
   return (
@@ -154,13 +166,12 @@ const Form = () => {
               <select
                 name="country"
                 id="activity's-country"
-                value=""
                 onChange={handleChange}
               >
                 <option value="">Choose at least one country</option>
                 {countries.map((country, index) => {
                   return (
-                    <option value={country.name} key={index}>
+                    <option value={country.id} key={index}>
                       {country.name}
                     </option>
                   );
@@ -176,7 +187,11 @@ const Form = () => {
                 formState.countries.map((country, index) => {
                   return (
                     <div className={styles.countryCard} key={index}>
-                      <button onClick={eliminateCountry} value={country}>
+                      <button
+                        type="button"
+                        onClick={eliminateCountry}
+                        value={country}
+                      >
                         X
                       </button>
                       <span>{country}</span>
@@ -194,7 +209,7 @@ const Form = () => {
                 id="activity's-season-spring"
                 name="season"
                 type="radio"
-                value="spring"
+                value="Spring"
                 onChange={handleChange}
               />
               <label htmlFor="activity's-season-spring">Spring</label>
@@ -202,7 +217,7 @@ const Form = () => {
                 id="activity's-season-summer"
                 name="season"
                 type="radio"
-                value="summer"
+                value="Summer"
                 onChange={handleChange}
               />
               <label htmlFor="activity's-season-summer">Summer</label>
@@ -210,7 +225,7 @@ const Form = () => {
                 id="activity's-season-fall"
                 name="season"
                 type="radio"
-                value="fall"
+                value="Fall"
                 onChange={handleChange}
               />
               <label htmlFor="activity's-season-fall">Fall</label>
@@ -218,7 +233,7 @@ const Form = () => {
                 id="activity's-season-winter"
                 name="season"
                 type="radio"
-                value="winter"
+                value="Winter"
                 onChange={handleChange}
               />
               <label htmlFor="activity's-season-winter">Winter</label>
