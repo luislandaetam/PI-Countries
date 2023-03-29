@@ -187,9 +187,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         activities: action.payload,
-        shownCards: action.payload.slice(0, 10),
-        page: 1,
-        isLoading: false,
       };
     case CREATE_ACTIVITY:
       return { ...state, createdActivity: true };
