@@ -7,7 +7,7 @@
   width: 195px;
   height: 275px;
   padding: 10px;
-  margin: 50px;
+  margin: 50px 0;
   border-radius: 50px;
   background: #2c74b3;
   color: white;
@@ -23,13 +23,6 @@
   transform: scale(1.1);
 }
 
-a:link,
-a:visited {
+a:link {
   text-decoration: none;
-  color: white;
-  transition: all 0.2s ease-in-out;
-}
-
-.card:hover a:hover {
-  color: #acb7ce;
 }

@@ -3,13 +3,13 @@ import styles from "./CountryCards.module.css";
 
 const CountryCards = ({ flag, name, continent, id }) => {
   return (
-    <div className={styles.card}>
-      <img src={flag} alt={`Flag: ${name}`} className={styles.img} />
-      <Link to={`/countries/${id}`}>
+    <Link to={`/countries/${id}`}>
+      <div className={styles.card}>
+        <img src={flag} alt={`Flag: ${name}`} className={styles.img} />
         <h2>{name}</h2>
-      </Link>
-      <h3>{continent}</h3>
-    </div>
+        <h3>{continent}</h3>
+      </div>
+    </Link>
   );
 };
 
