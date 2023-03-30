@@ -1,7 +1,15 @@
+.homeView {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .cards {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
+  gap: 2.5vw;
+  margin: 2.5vh 5vw;
 }

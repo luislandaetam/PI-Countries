@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
 import worldIcon from "../../assets/worldIcon.png";
 import airplaneIcon from "../../assets/airplaneIcon.png";
 import styles from "./Landing.module.css";
@@ -2077,8 +2078,8 @@ const Landing = () => {
         <circle cx="1798.2" cy="719.3" id="2"></circle>
       </svg>
 
-      <Link to="/countries">
-        <section className={styles.redirection}>
+      <section className={styles.redirection}>
+        <Link to="/countries">
           <img src={worldIcon} alt="World icon" className={styles.icon} />
           <button className={styles.button}>
             <div className={styles.imgWrapper}>
@@ -2086,8 +2087,9 @@ const Landing = () => {
             </div>
             <span>Explore Pangea!</span>
           </button>
-        </section>
-      </Link>
+        </Link>
+      </section>
+      <Footer />
     </>
   );
 };

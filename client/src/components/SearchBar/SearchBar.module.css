@@ -1,19 +1,24 @@
 /* //////////////////////////// FORM /////////////////////////////// */
 
-.form {
+.nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-  margin-bottom: 16px;
+  justify-content: space-between;
+  margin: 2.5vh 5vw;
 }
 
 /* ///////////////////////// LOGO //////////////////////////// */
 
+.logo a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
 .logo h1 {
-  position: absolute;
-  top: 0;
-  left: 72px;
+  margin: 0;
   color: #171a2b;
   transition: 0.2s linear;
 }
@@ -22,9 +27,6 @@
   width: 56px;
   transform: rotate(23.5deg);
   transition: 0.2s linear;
-  position: absolute;
-  top: 10px;
-  left: 10px;
 }
 
 .logo:hover h1 {
@@ -36,8 +38,8 @@
   -webkit-animation: spin 4s linear infinite;
   -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite;
-  filter: invert(36%) sepia(93%) saturate(623%) hue-rotate(172deg)
-    brightness(88%) contrast(82%);
+  filter: invert(39%) sepia(11%) saturate(6657%) hue-rotate(180deg)
+    brightness(90%) contrast(75%);
 }
 @-moz-keyframes spin {
   100% {
@@ -61,8 +63,6 @@
 .searchBar {
   display: flex;
   flex-direction: row;
-  position: relative;
-  margin: 10px;
 }
 
 .containerInput {
@@ -72,7 +72,7 @@
 
 .input {
   width: 150px;
-  padding: 10px 0px 10px 40px;
+  padding: 10px 10px 10px 40px;
   border-radius: 9999px;
   border: solid 1px #2c74b3;
   transition: all 0.2s ease-in-out;
@@ -150,9 +150,8 @@
   }
 }
 
-/* ///////////////////// ACTIVITY'S BUTTONS /////////////////////////////////// */
+/* ///////////////////// CREATE-ACTIVITY BUTTON /////////////////////////////////// */
 
-.activities,
 .createActivity {
   height: 38px;
   line-height: 38px;
@@ -166,7 +165,59 @@
   transition: 0.2s all ease-in-out;
 }
 
-.activities:hover,
 .createActivity:hover {
   background: #171a2b;
 }
+
+/* TOGGLE MENU */
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  /* The size of the SVG defines the overall size */
+  height: 3em;
+  /* Define the transition for transforming the SVG */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  /* Define the transition for transforming the Stroke */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lineTopBottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .lineTopBottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////// MEDIA QUERY ///////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* 
+@media only screen and (max-width: 768px) {
+  .hamburger {
+    display: inline;
+  }
+} */

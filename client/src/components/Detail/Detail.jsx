@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { getById } from "../../redux/actions/actions.js";
 import Loader from "../Loader/Loader.jsx";
 import Error404 from "../Error404/Error404.jsx";
+import Footer from "../Footer/Footer.jsx";
 import airplaneIcon from "../../assets/airplaneIcon.png";
 import styles from "./Detail.module.css";
 
@@ -64,17 +65,18 @@ const Detail = () => {
             </section>
           </article>
         )}
+        <article className={styles.back}>
+          <Link to="/countries">
+            <button className={styles.button}>
+              <div className={styles.imgWrapper}>
+                <img src={airplaneIcon} alt="Airplane icon" />
+              </div>
+              <span>Back</span>
+            </button>
+          </Link>
+        </article>
       </main>
-      <footer className={styles.footer}>
-        <Link to="/countries">
-          <button className={styles.button}>
-            <div className={styles.imgWrapper}>
-              <img src={airplaneIcon} alt="Airplane icon" />
-            </div>
-            <span>Back</span>
-          </button>
-        </Link>
-      </footer>
+      <Footer />
     </div>
   );
 };

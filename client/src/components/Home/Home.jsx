@@ -7,6 +7,7 @@ import Sorting from "../Sorting/Sorting.jsx";
 import Paging from "../Paging/Paging.jsx";
 import Loader from "../Loader/Loader.jsx";
 import Error404 from "../Error404/Error404.jsx";
+import Footer from "../Footer/Footer.jsx";
 import CountryCards from "../CountryCards/CountryCards.jsx";
 import styles from "./Home.module.css";
 
@@ -20,11 +21,13 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <SearchBar />
-      <Sorting />
-      <Paging currentPage={currentPage} />
-      <section className={styles.cards}>
+    <div className={styles.homeView}>
+      <header>
+        <SearchBar />
+        <Sorting />
+        <Paging currentPage={currentPage} />
+      </header>
+      <main className={styles.cards}>
         {countries.length === 0 ? (
           <Loader />
         ) : countries[0] === "-1" ? (
@@ -42,7 +45,8 @@ const Home = () => {
             );
           })
         )}
-      </section>
+      </main>
+      <Footer />
     </div>
   );
 };

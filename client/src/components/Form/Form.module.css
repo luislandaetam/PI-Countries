@@ -19,8 +19,8 @@
   -webkit-animation: spin 24s linear infinite;
   -moz-animation: spin 24s linear infinite;
   animation: spin 24s linear infinite;
-  filter: invert(36%) sepia(93%) saturate(623%) hue-rotate(172deg)
-    brightness(88%) contrast(82%);
+  filter: invert(39%) sepia(11%) saturate(6657%) hue-rotate(180deg)
+    brightness(90%) contrast(75%);
 }
 
 @-moz-keyframes spin {
@@ -249,13 +249,13 @@
 
 /* /////////////////////////////////// FOOTER //////////////////////////////////////////////// */
 
-.rightContainer footer {
+.rightContainer .redirection {
   align-items: center;
   display: grid;
   padding: 5px 40px;
 }
-.rightContainer footer button,
-.rightContainer footer .back {
+.rightContainer .redirection button,
+.rightContainer .redirection .back {
   border: 1px solid rgba(0, 0, 0, 0.2);
   color: #171a2b;
   height: 38px;
@@ -265,21 +265,21 @@
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
 }
-.rightContainer footer .back {
+.rightContainer .redirection .back {
   text-align: center;
   background: #fff;
   transition: 0.2s all ease-in-out;
 }
-.rightContainer footer .back:hover {
+.rightContainer .redirection .back:hover {
   background: #171a2b;
   color: white;
 }
-.rightContainer footer .next {
+.rightContainer .redirection .next {
   background: #2c74b3;
   border: 1px solid transparent;
   color: #fff;
   transition: 0.2s all ease-in-out;
 }
-.rightContainer footer .next:hover {
+.rightContainer .redirection .next:hover {
   background: #171a2b;
 }
