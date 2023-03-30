@@ -1,3 +1,10 @@
+.landingView {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
 .name {
   position: absolute;
   background-color: white;
@@ -23,11 +30,12 @@
 
 /* ///////////////////////// REDIRECTION //////////////////////////// */
 
-.redirection {
+.redirection a {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 5vh 0;
 }
 
 /* ///////////////////////// ICON //////////////////////////// */

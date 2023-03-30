@@ -6,7 +6,7 @@ import styles from "./Landing.module.css";
 
 const Landing = () => {
   return (
-    <>
+    <div className={styles.landingView}>
       <div>
         <p className={styles.name}>Name</p>
       </div>
@@ -2090,7 +2090,7 @@ const Landing = () => {
         </Link>
       </section>
       <Footer />
-    </>
+    </div>
   );
 };
 
